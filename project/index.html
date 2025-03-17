@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Incredible India Tours</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/src/output.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        /* Add custom styles here */
+        
+        @keyframes glowing {
+            0% {
+                box-shadow: 0 0 5px rgba(255, 153, 51, 0.5);
+            }
+            50% {
+                box-shadow: 0 0 20px rgba(255, 153, 51, 0.8);
+            }
+            100% {
+                box-shadow: 0 0 5px rgba(255, 153, 51, 0.5);
+            }
+        }
+        
+        .glow-button {
+            animation: glowing 2s linear infinite;
+        }
+        /* Add custom styles here */
+        
+        @keyframes zoomIn {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(1.1);
+            }
+        }
+        
+        .destination-card:hover {
+            animation: zoomIn 0.3s ease-in-out forwards, glowingBorder 0.3s linear infinite;
+        }
+        
+        @keyframes glowingBorder {
+            0% {
+                border-color: rgba(255, 153, 51, 0.5);
+            }
+            50% {
+                border-color: rgba(255, 153, 51, 0.8);
+            }
+            100% {
+                border-color: rgba(255, 153, 51, 0.5);
+            }
+        }
+        
+        .destination-card {
+            transition: transform 0.3s ease-in-out, border-color 0.3s linear;
+            border: 2px solid transparent;
+        }
+        
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+        
+        .typing-animation {
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: .15em solid #FF9933;
+            /* Cursor */
+            animation: typing 3.5s steps(40, end) forwards;
+            /* Adjust the animation duration for desired speed */
+        }
+        /* Adjusted Navbar Styles */
+        
+        nav {
+            background: rgba(0, 0, 0, 0.6);
+            /* Semi-transparent black for better video visibility */
+            backdrop-filter: blur(5px);
+            /* Adds a frosted glass effect */
+        }
+        
+        .nav-link {
+            color: #fff !important;
+            /* Ensure text is always white */
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: #FF9933 !important;
+            /* Saffron on hover */
+        }
+        
+        .login-button {
+            background-color: #fff !important;
+            /* White background */
+            color: #1E40AF !important;
+            /* Royal Blue text */
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 font-sans">
+
+    <nav class="sticky top-0 z-50 py-4">
+        <div class="container mx-auto px-4 flex items-center justify-between">
+            <a href="#" class="text-2xl font-bold text-white">
+                <i class="fas fa-map-marked-alt mr-2"></i> Incredible India Tours
+            </a>
+            <div class="hidden md:flex items-center space-x-4">
+                <a href="#" class="nav-link">Home</a>
+                <a href="dashboard.html" class="nav-link">Dashboard</a>
+                <a href="forum.html" class="nav-link">Forum</a>
+                <a href="bookings.html" class="nav-link">Bookings</a>
+                <a href="profile.html" class="nav-link">Profile</a>
+                <a href="login.html" class="login-button font-bold py-2 px-4 rounded-full transition-colors hover:bg-gray-100">Login</a>
+                <a href="signup.html" class="nav-link">Signup</a>
+            </div>
+            <button id="menu-toggle" class="md:hidden text-gray-300 hover:text-gray-100 focus:outline-none">
+                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-50 py-2">
+            <a href="#" class="block px-4 py-2 hover:bg-gray-200 transition-colors">Home</a>
+            <a href="dashboard.html" class="block px-4 py-2 hover:bg-gray-200 transition-colors">Dashboard</a>
+            <a href="forum.html" class="block px-4 py-2 hover:bg-gray-200 transition-colors">Forum</a>
+            <a href="bookings.html" class="block px-4 py-2 hover:bg-gray-200 transition-colors">Bookings</a>
+            <a href="profile.html" class="block px-4 py-2 hover:bg-gray-200 transition-colors">Profile</a>
+            <a href="login.html" class="block px-4 py-2 hover:bg-gray-200 transition-colors">Login</a>
+            <a href="signup.html" class="block px-4 py-2 hover:bg-gray-200 transition-colors">Signup</a>
+        </div>
+    </nav>
+    <!-- Hero Section -->
+    <section class="relative h-screen overflow-hidden">
+        <!-- Background Video -->
+        <video autoplay loop muted playsinline class="absolute w-full h-full object-cover z-0">
+            <source src="img/video.mp4" type="video/mp4">
+            <!-- Replace "your-video.mp4" with the actual path to your video file -->
+            Your browser does not support the video tag.
+        </video>
+
+        <div class="absolute inset-0 bg-black opacity-50 z-10"></div>
+        <div class="container mx-auto h-full flex flex-col justify-center items-center text-white text-center relative z-20">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4 typing-animation" style="width: 100%; overflow: hidden; white-space: nowrap; border-right: .15em solid #FF9933;">Discover India’s Hidden Treasures!</h1>
+            <p class="text-lg md:text-xl mb-8">Explore the Incredible beauty and cultural heritage of India</p>
+            <div class="mx-auto px-4 relative">
+                <div class="bg-white shadow-lg rounded-full p-2 flex items-center">
+                    <input type="text" placeholder="Search for destinations..." class="w-full px-4 py-2 rounded-full focus:outline-none">
+                    <button class="bg-royal-blue hover:bg-royal-blue-700 text-white font-bold py-2 px-4 rounded-full ml-4 transition-colors">Search</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Destinations -->
+    <section class="py-12 bg-gradient-to-br from-green-100 to-white-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-royal-blue mb-8 text-center" data-aos="fade-down">Popular Indian Destinations</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Destination Card 1 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden destination-card">
+                    <img src="img/Goa Beaches & Goa Travel _ Places to visit in Goa _ Beaches in Goa _ Pic 92.jpeg" alt="Goa" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold text-royal-blue mb-2">Goa</h3>
+                        <p class="text-gray-600">Beaches, nightlife, and Portuguese architecture.</p>
+                    </div>
+                </div>
+                <!-- Destination Card 2 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden destination-card">
+                    <img src="img/manali.jpg" alt="Manali" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold text-royal-blue mb-2">Manali</h3>
+                        <p class="text-gray-600">Snow-capped mountains, adventure sports, and scenic beauty.</p>
+                    </div>
+                </div>
+                <!-- Destination Card 3 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden destination-card">
+                    <img src="img/Rishikesh, ganga, Uttrakhand_.jpeg" alt="Rishikesh" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold text-royal-blue mb-2">Rishikesh</h3>
+                        <p class="text-gray-600">Adventure activities, yoga retreats, and spiritual vibes.</p>
+                    </div>
+                </div>
+                <!-- Destination Card 4 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden destination-card">
+                    <img src="img/udainpur.jpeg" alt="Udaipur" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold text-royal-blue mb-2">Udaipur</h3>
+                        <p class="text-gray-600">Lakes, palaces, and romantic ambiance.</p>
+                    </div>
+                </div>
+                <!-- Destination Card 5 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden destination-card">
+                    <img src="img/darjeeling_.jpeg" alt="c:\Users\kumar\Downloads\Ladakh.jpeg" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold text-royal-blue mb-2">Darjeeling</h3>
+                        <p class="text-gray-600">Tea gardens, scenic views, and colonial charm.</p>
+                    </div>
+                </div>
+                <!-- Destination Card 6 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden destination-card">
+                    <img src="img/Ladakh.jpeg" alt="Ladakh" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold text-royal-blue mb-2">Ladakh</h3>
+                        <p class="text-gray-600">Adventure, monasteries, and breathtaking landscapes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="py-12 bg-gradient-to-br from-green-100 to-white-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-royal-blue mb-8 text-center" data-aos="fade-down">How It Works</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Step 1 -->
+                <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-search fa-3x text-saffron mb-4"></i>
+                    <h3 class="text-xl font-semibold text-royal-blue mb-2">Find a Destination</h3>
+                    <p class="text-gray-600">Explore India's diverse destinations and select your dream location.</p>
+                </div>
+                <!-- Step 2 -->
+                <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-chart-bar fa-3x text-green mb-4"></i>
+                    <h3 class="text-xl font-semibold text-royal-blue mb-2">Compare & Book</h3>
+                    <p class="text-gray-600">Compare prices and packages to book the perfect trip for you.</p>
+                </div>
+                <!-- Step 3 -->
+                <div class="text-center" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fas fa-plane fa-3x text-saffron mb-4"></i>
+                    <h3 class="text-xl font-semibold text-royal-blue mb-2">Enjoy Your Journey</h3>
+                    <p class="text-gray-600">Pack your bags and get ready for an incredible Indian adventure!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-12 bg-gradient-to-br from-saffron-100 to-white-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-royal-blue mb-8 text-center" data-aos="fade-down">Testimonials</h2>
+            <div class="testimonial-container relative">
+                <div id="testimonial-slider" class="flex transition-transform duration-500">
+                    <!-- Testimonial 1 -->
+                    <div class="testimonial-slide w-full flex-shrink-0 p-4">
+                        <div class="bg-white rounded-lg shadow-md p-6">
+                            <div class="flex items-center mb-4">
+                                <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="Avatar" class="w-12 h-12 rounded-full mr-4">
+                                <div>
+                                    <h4 class="text-lg font-semibold text-royal-blue">Rahul Sharma</h4>
+                                    <div class="text-saffron">
+                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-gray-700">"Incredible India Tours made my trip to Rajasthan unforgettable! Highly recommended."</p>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 2 -->
+                    <div class="testimonial-slide w-full flex-shrink-0 p-4">
+                        <div class="bg-white rounded-lg shadow-md p-6">
+                            <div class="flex items-center mb-4">
+                                <img src="https://randomuser.me/api/portraits/women/2.jpg" alt="Avatar" class="w-12 h-12 rounded-full mr-4">
+                                <div>
+                                    <h4 class="text-lg font-semibold text-royal-blue">Priya Verma</h4>
+                                    <div class="text-saffron">
+                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-gray-700">"Easy to find the best deals and compare prices. Excellent customer support!"</p>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 3 -->
+                    <div class="testimonial-slide w-full flex-shrink-0 p-4">
+                        <div class="bg-white rounded-lg shadow-md p-6">
+                            <div class="flex items-center mb-4">
+                                <img src="https://randomuser.me/api/portraits/men/3.jpg" alt="Avatar" class="w-12 h-12 rounded-full mr-4">
+                                <div>
+                                    <h4 class="text-lg font-semibold text-royal-blue">Amit Patel</h4>
+                                    <div class="text-saffron">
+                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-gray-700">"The community forum helped me plan the perfect trip. Great tips and suggestions!"</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation Arrows -->
+                <button id="prev-testimonial" class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-2 px-4 rounded-full focus:outline-none">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button id="next-testimonial" class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-2 px-4 rounded-full focus:outline-none">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-12 bg-gradient-to-r from-saffron-400 to-green-500">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold text-white mb-4">Ready to Explore India? Sign Up Now!</h2>
+            <p class="text-xl text-white mb-8">Discover incredible beauty and cultural heritage</p>
+            <a href="signup.html" class="bg-white text-royal-blue font-bold py-3 px-6 rounded-full hover:bg-gray-100 transition-colors glow-button">Join Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- About Us -->
+            <div>
+                <h4 class="text-lg font-semibold mb-2">About Incredible India Tours</h4>
+                <p>Your one-stop platform for booking amazing travel experiences in India. We connect you with the best destinations and deals.</p>
+            </div>
+
+            <!-- Quick Links -->
+            <div>
+                <h4 class="text-lg font-semibold mb-2">Quick Links</h4>
+                <ul class="list-none">
+                    <li><a href="#" class="hover:text-white transition-colors">Home</a></li>
+                    <li><a href="destinations.html" class="hover:text-white transition-colors">Destinations</a></li>
+                    <li><a href="forum.html" class="hover:text-white transition-colors">Forum</a></li>
+                    <li><a href="bookings.html" class="hover:text-white transition-colors">Bookings</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <!-- Newsletter -->
+            <div>
+                <h4 class="text-lg font-semibold mb-2">Subscribe to Our Newsletter</h4>
+                <p>Get the latest travel news and exclusive deals delivered to your inbox.</p>
+                <form id="newsletter-form" class="mt-4">
+                    <input type="email" id="newsletter-email" placeholder="Your Email Address" class="bg-gray-700 text-white rounded-md py-2 px-4 w-full focus:outline-none">
+                    <button type="submit" class="bg-royal-blue hover:bg-royal-blue-700 text-white font-bold py-2 px-4 rounded-md mt-2 transition-colors">Subscribe</button>
+                    <p id="newsletter-error" class="text-red-500 text-sm mt-1 hidden">Please enter a valid email address.</p>
+                </form>
+            </div>
+        </div>
+        <!-- Social Media Icons -->
+        <div class="flex justify-center mt-4">
+            <a href="#" class="text-gray-300 hover:text-white transition-colors mx-2">
+                <i class="fab fa-whatsapp fa-2x"></i>
+            </a>
+            <a href="#" class="text-gray-300 hover:text-white transition-colors mx-2">
+                <i class="fab fa-instagram fa-2x"></i>
+            </a>
+            <a href="#" class="text-gray-300 hover:text-white transition-colors mx-2">
+                <i class="fab fa-twitter fa-2x"></i>
+            </a>
+            <a href="#" class="text-gray-300 hover:text-white transition-colors mx-2">
+                <i class="fab fa-youtube fa-2x"></i>
+            </a>
+        </div>
+        <div class="container mx-auto px-4 mt-8 text-center">
+            <p>© 2025 Incredible India Tours</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+        document.addEventListener('DOMContentLoaded', function() {
+            // Navbar Toggle (Mobile)
+            const menuToggle = document.getElementById('menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            if (menuToggle && mobileMenu) {
+                menuToggle.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+
+            // Testimonial Carousel
+            let testimonialIndex = 0;
+            const slides = document.querySelectorAll('.testimonial-slide');
+            const totalSlides = slides.length;
+            const slider = document.getElementById('testimonial-slider');
+            const prevButton = document.getElementById('prev-testimonial');
+            const nextButton = document.getElementById('next-testimonial');
+
+            function updateSlider() {
+                slider.style.transform = `translateX(${-testimonialIndex * 100}%)`;
+            }
+
+            if (prevButton && nextButton) {
+                prevButton.addEventListener('click', () => {
+                    testimonialIndex = (testimonialIndex - 1 + totalSlides) % totalSlides;
+                    updateSlider();
+                });
+
+                nextButton.addEventListener('click', () => {
+                    testimonialIndex = (testimonialIndex + 1) % totalSlides;
+                    updateSlider();
+                });
+            }
+
+            // Newsletter Form Validation
+            const newsletterForm = document.getElementById('newsletter-form');
+            const newsletterEmail = document.getElementById('newsletter-email');
+            const newsletterError = document.getElementById('newsletter-error');
+
+            if (newsletterForm && newsletterEmail && newsletterError) {
+                newsletterForm.addEventListener('submit', function(event) {
+                    if (!newsletterEmail.value.includes('@')) {
+                        newsletterError.classList.remove('hidden');
+                        event.preventDefault(); // Prevent form submission
+                    } else {
+                        newsletterError.classList.add('hidden');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
